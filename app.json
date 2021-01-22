@@ -1,0 +1,9 @@
+{
+  "name": "libtest",
+  "displayName": "libtest",
+  "expo": {
+    "name": "libtest",
+    "slug": "libtest",
+    "sdkVersion": "40.0.0"
+  }
+}
