@@ -57,6 +57,7 @@ export default ({onSubmit, error, loading, onGoogleSignIn, onAppleSignIn}) =>
                         <AppleButton
                             buttonStyle={AppleButton.Style.BLACK}
                             buttonType={AppleButton.Type.SIGN_IN}
+                            style={{width: 160, height: 45}}
                             onPress={onAppleSignIn}
                         />
                     </View>

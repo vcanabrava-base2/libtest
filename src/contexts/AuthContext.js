@@ -2,6 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import Auth from '../api/Auth';
 import appleAndroidSignIn from '../federated/appleAndroidSignIn';
+import appleiOSSignIn from '../federated/appleiOSSignIn';
 import googleSignIn, {googleSignOut} from '../federated/googleSignIn';
 import UserData from '../local/UserData';
 
@@ -72,6 +73,7 @@ export class AuthStore extends React.Component
             const token = await googleSignIn();
             if(token === undefined) return;
             else await this.onSuccessfullLogin(token, 'A');
+            console.log(token);
         }
         catch
         {
@@ -88,9 +90,10 @@ export class AuthStore extends React.Component
     {
         try 
         {
-            const token = Platform.OS === 'android' ? await appleAndroidSignIn() : undefined;
+            const token = Platform.OS === 'android' ? await appleAndroidSignIn() : await appleiOSSignIn();
             if(token === undefined) return;
             else await this.onSuccessfullLogin(token, 'B');
+            console.log(token);
         }
         catch
         {
