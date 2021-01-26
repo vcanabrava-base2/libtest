@@ -9,7 +9,7 @@ const defaultRequest = async boundRequest =>
         Auth.setToken(response.data.token);
         return response;
     }
-    catch
+    catch(err)
     {
         Auth.setToken(null);
         throw err;

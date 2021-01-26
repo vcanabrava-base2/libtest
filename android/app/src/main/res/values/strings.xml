@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">libtest</string>
+    <string name="app_name">Mock Login</string>
     <string name="server_client_id">945401715138-dd48b442psejm4461gjamshg2q3fo6sl.apps.googleusercontent.com</string>
 </resources>

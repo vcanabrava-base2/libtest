@@ -55,11 +55,12 @@ export class AuthStore extends React.Component
             const result = await Auth.login({user, pass});
             await this.onSuccessfullLogin(result.data.token, result.data.authType);
         }
-        catch
+        catch(err)
         {
+            console.log(err.message);
             this.setState(
                 {
-                    error: 'Usuário ou senha errados',
+                    error: err.message,
                     loading: false
                 }
             )
@@ -70,10 +71,10 @@ export class AuthStore extends React.Component
     {
         try 
         {
+            this.setState({loading: true})
             const token = await googleSignIn();
-            if(token === undefined) return;
+            if(token === undefined) this.setState({loading: false});
             else await this.onSuccessfullLogin(token, 'A');
-            console.log(token);
         }
         catch
         {
@@ -90,10 +91,10 @@ export class AuthStore extends React.Component
     {
         try 
         {
+            this.setState({loading: true});
             const token = Platform.OS === 'android' ? await appleAndroidSignIn() : await appleiOSSignIn();
-            if(token === undefined) return;
+            if(token === undefined) this.setState({loading: false});
             else await this.onSuccessfullLogin(token, 'B');
-            console.log(token);
         }
         catch
         {
@@ -123,7 +124,7 @@ export class AuthStore extends React.Component
     logout = async () =>
     {
         this.setState({token: '', authType: ''});
-        await Auth.setToken(null);
+        Auth.setToken(null);
         await UserData.clear();
         await googleSignOut();
     }

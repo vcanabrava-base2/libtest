@@ -9,6 +9,7 @@ export default () =>
     const auth = useContext(AuthContext);
 
     if(auth.token === '') return (<LoginContainer/>);
+    console.log('Aprooved because token was: ' + auth.token);
     
     const root =
     (

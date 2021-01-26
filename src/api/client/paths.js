@@ -3,7 +3,7 @@ const RESTRICTED = 'restricted';
 
 const paths =
 {
-    ROOT: 'http://10.0.2.2:19000',
+    ROOT: 'https://mock-server-the-canabrava.herokuapp.com',
 
     AUTH:
     {

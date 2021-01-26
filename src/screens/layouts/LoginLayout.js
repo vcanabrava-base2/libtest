@@ -48,6 +48,8 @@ export default ({onSubmit, error, loading, onGoogleSignIn, onAppleSignIn}) =>
                         title={strings.LOGIN}
                         onPress={onSubmit.bind(this, user, pass)}
                     />
+                    {!loading &&
+                    <>
                     <View style={styles.googleButton}>
                         <GoogleSigninButton 
                             onPress={onGoogleSignIn}
@@ -61,6 +63,8 @@ export default ({onSubmit, error, loading, onGoogleSignIn, onAppleSignIn}) =>
                             onPress={onAppleSignIn}
                         />
                     </View>
+                    </>
+                    }
                     {error && 
                     <Text style={styles.errorText}>
                         {error}    

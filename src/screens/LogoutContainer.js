@@ -6,5 +6,5 @@ import strings from './strings';
 export default ({navigation}) =>
 {
     const auth = useContext(AuthContext);
-    return (<LogoutLayout onLogout={auth.logout} onClickBack={() => navigation.navigate(strings.ROUTES.home)}/>)
+    return (<LogoutLayout currentToken={auth.token} onLogout={auth.logout} onClickBack={() => navigation.navigate(strings.ROUTES.home)}/>)
 }
