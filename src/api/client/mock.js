@@ -4,7 +4,7 @@ import paths from './paths';
 const config =
 {
     baseURL: paths.ROOT,
-    timeout: 5000
+    timeout: 15000
 }
 
 export default axios.create(config);
